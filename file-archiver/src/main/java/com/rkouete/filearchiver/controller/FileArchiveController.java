@@ -15,9 +15,8 @@ import java.util.List;
 @RequestMapping("/archive")
 public class FileArchiveController {
 
-    Logger logger = LogManager.getLogger(FileArchiveController.class);
-
     private final ArchiveService archiveService;
+    Logger logger = LogManager.getLogger(FileArchiveController.class);
 
     public FileArchiveController(ArchiveService archiveService) {
         this.archiveService = archiveService;
