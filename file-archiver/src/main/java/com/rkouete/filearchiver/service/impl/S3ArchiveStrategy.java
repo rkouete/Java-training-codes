@@ -6,12 +6,19 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+
+/**
+ * @author rkouete
+ */
+
 @Component
 @Qualifier("S3")
 public class S3ArchiveStrategy implements ArchiveStrategy {
     @Override
-    public void archive(MultipartFile file) {
-        logger.debug("Archiving {} on S3", file.getOriginalFilename());
+    public void archive(File file) {
+        logger.debug("Archiving {} on S3", file.getName());
+        //todo
     }
 
     @Override

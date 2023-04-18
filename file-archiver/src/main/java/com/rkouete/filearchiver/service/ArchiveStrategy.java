@@ -5,10 +5,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+
+/**
+ * @author rkouete
+ */
 public interface ArchiveStrategy {
     Logger logger = LogManager.getLogger();
 
-    void archive(MultipartFile file);
+    void archive(File file);
 
     EnumProvider provider();
 }

@@ -4,13 +4,17 @@ import com.rkouete.filearchiver.service.ArchiveService;
 import com.rkouete.filearchiver.service.ArchiveStrategy;
 import common.EnumProvider;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
 import static java.util.stream.Collectors.toUnmodifiableMap;
+
+/**
+ * @author rkouete
+ */
 
 @Service
 public class ArchiveServiceImpl implements ArchiveService {
@@ -23,7 +27,8 @@ public class ArchiveServiceImpl implements ArchiveService {
     }
 
     @Override
-    public void archive(MultipartFile file, List<EnumProvider> providers) {
-        providers.stream().forEach(provider -> archivers.get(provider).archive(file));
+    public void archive(File file, List<EnumProvider> providers) {
+        providers.forEach(provider -> archivers.get(provider).archive(file));
+        archivers.values().stream().map(ArchiveStrategy::provider).forEach(System.out::println);
     }
 }
