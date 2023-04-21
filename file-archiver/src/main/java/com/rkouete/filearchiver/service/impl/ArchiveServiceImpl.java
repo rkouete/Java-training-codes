@@ -29,6 +29,5 @@ public class ArchiveServiceImpl implements ArchiveService {
     @Override
     public void archive(File file, List<EnumProvider> providers) {
         providers.forEach(provider -> archivers.get(provider).archive(file));
-        archivers.values().stream().map(ArchiveStrategy::provider).forEach(System.out::println);
     }
 }
